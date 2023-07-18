@@ -18,7 +18,7 @@ commonLabels: {}
 image:
   # -- Docker image repository
   repository: ghcr.io/kaskada-ai/kaskada/engine
-  # -- Overrides the image tag whose 
+  # -- Overrides the image tag whose
   tag: latest
   # -- Docker image pull policy
   pullPolicy: IfNotPresent
@@ -29,7 +29,7 @@ imagePullSecrets: []
 # -- Configures logging output for the pod.
 logging:
   # -- Should be `info` or `debug`
-  # -- Note that sensitive information may exist in logs if the `debug` level is used 
+  # -- Note that sensitive information may exist in logs if the `debug` level is used
   level: info
   # -- Either `json` or `console`
   format: json
@@ -85,7 +85,7 @@ storage:
       # -- The size of the data storage volume when using local storage.
       storage: 100Gi
       # -- The type of storage used to provision the local data volume.
-      storageClassName:      
+      storageClassName:
   # -- Configures the database storage for the kaskada service
   dbData:
     # -- The size of the database volume
@@ -103,12 +103,12 @@ auth:
   # -- (Optional) User-based authentication for AWS when using S3 as the primary storage for kaskada
   # -- Instead, consider using IRSA authenication via the `auth.serviceAccount` values below.
   aws:
-      # -- An AWS secret access key that has permisison to write to the bucket & prefix
-      secretAccessKey: null
-      # -- An AWS access key id that has permisison to write to the bucket & path
-      accessKeyId: null
-      # -- The region where the S3 bucket exists
-      region: null
+    # -- An AWS secret access key that has permisison to write to the bucket & prefix
+    secretAccessKey: null
+    # -- An AWS access key id that has permisison to write to the bucket & path
+    accessKeyId: null
+    # -- The region where the S3 bucket exists
+    region: null
   serviceAccount:
     # -- Specifies whether a ServiceAccount should be created
     create: false

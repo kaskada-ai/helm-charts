@@ -39,22 +39,21 @@ chances of your issue being dealt with quickly:
 
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-1. Search the repository (https://github.com/kaskada-ai/helm-charts/pulls) for an open or closed PR that relates to your submission. You don't want to duplicate effort.
+1. Search the repository (<https://github.com/kaskada-ai/helm-charts/pulls>) for an open or closed PR that relates to your submission. You don't want to duplicate effort.
 
 1. Create a fork of the repo
-	* Navigate to the repo you want to fork
-	* In the top right corner of the page click **Fork**:
-	![](https://help.github.com/assets/images/help/repository/fork_button.jpg)
+   * Navigate to the repo you want to fork
+   * In the top right corner of the page click **Fork**: ![fork](https://help.github.com/assets/images/help/repository/fork_button.jpg)
 
 1. Create a new branch in your forked repository to capture your work. For example: `git checkout -b your-branch-name`
 
 1. Commit changes to the branch  using a descriptive commit message
 1. Make sure to test your changes using the unit and integration tests
 1. When you’re ready to submit your changes, push them to your fork. For example: `git push origin your-branch-name`
-1. In GitHub, create a pull request: https://help.github.com/en/articles/creating-a-pull-request-from-a-fork
+1. In GitHub, create a pull request: <https://help.github.com/en/articles/creating-a-pull-request-from-a-fork>
 1. If we suggest changes then:
-  1. Make the required updates.
-  1. Rebase your fork and force push to your GitHub repository (this will update your Pull Request):
+   1. Make the required updates.
+   1. Rebase your fork and force push to your GitHub repository (this will update your Pull Request):
 
     git rebase main -i
     git push -f
