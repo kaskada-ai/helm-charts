@@ -1,0 +1,24 @@
+apiVersion: v2
+name: kaskada-canary
+description: |
+  Kaskada is a query engine for event-based (timestamped) data.
+
+  This helm chart installs a persistant version of the kaskada service in the simplest configuration possible.
+  This chart is primarily for initial testing and should not be used in production scenarios.
+
+  In this setup, the kaskada service runs as two containers in a single pod, and persists its database
+  as a file on attached storage. It also requires access to an object store.
+type: application
+version: 0.0.1
+keywords:
+  - kubernetes
+  - kaskada
+home: https://github.com/kaskada-ai/kaskada
+icon: https://github.com/kaskada-ai/kaskada/raw/main/img/kaskada.png
+sources:
+  - https://github.com/kaskada-ai/kaskada/
+  - https://github.com/kaskada-ai/helm-charts
+maintainers:
+  - name: ericpinzur
+    email: eric.pinzur@datastax.com
+annotations:
