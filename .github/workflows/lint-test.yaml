@@ -27,12 +27,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Set up Helm
-        uses: azure/setup-helm@v1
+        uses: azure/setup-helm@v3
         with:
           version: ${{ inputs.helm_version }}
 
@@ -52,10 +52,29 @@ jobs:
           changed=$(ct list-changed --config "${CT_CONFIGFILE}")
           if [[ -n "$changed" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
+            echo "chartpath=`echo "${changed}" | head -1`" >> "$GITHUB_ENV"
           fi
 
       - name: Run chart-testing (lint)
         run: ct lint --config "${CT_CONFIGFILE}" --check-version-increment=${{ inputs.ct_check_version_increment }}
+
+      - name: Install Kubeval
+        uses: lra/setup-kubeval@v1
+        if: steps.list-changed.outputs.changed == 'true'
+
+      - name: Validate Canary Chart
+        run: |
+          echo "chartPath one: ${{ env.chartpath }}"
+          helm template "${{ env.chartpath }}" | kubeval
+        if: steps.list-changed.outputs.changed == 'true'
+
+      - name: Install Helm-UnitTest
+        run: helm plugin install https://github.com/helm-unittest/helm-unittest --version 0.3.0
+        if: steps.list-changed.outputs.changed == 'true'
+
+      - name: Test Canary Chart
+        run: helm unittest "${{ env.chartpath }}"
+        if: steps.list-changed.outputs.changed == 'true'
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.2.0
