@@ -7,7 +7,7 @@ manifest should match snapshot:
         app.kubernetes.io/instance: my-release
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: kaskada-canary
-        helm.sh/chart: kaskada-canary-0.0.1
+        helm.sh/chart: kaskada-canary-0.0.2
       name: my-release-kaskada-canary
       namespace: my-namespace
     spec:
@@ -133,7 +133,7 @@ manifest should match snapshot:
         app.kubernetes.io/instance: my-release
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: kaskada-canary
-        helm.sh/chart: kaskada-canary-0.0.1
+        helm.sh/chart: kaskada-canary-0.0.2
       name: my-release-kaskada-canary
       namespace: my-namespace
     spec:

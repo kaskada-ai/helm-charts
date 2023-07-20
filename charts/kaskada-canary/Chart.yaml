@@ -9,7 +9,7 @@ description: |
   In this setup, the kaskada service runs as two containers in a single pod, and persists its database
   as a file on attached storage. It also requires access to an object store.
 type: application
-version: 0.0.1
+version: 0.0.2
 keywords:
   - kubernetes
   - kaskada
